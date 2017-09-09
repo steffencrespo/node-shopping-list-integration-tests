@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: W0fDqSnxt+TVTHEDc0TfjLpD1unRiEXle1vQFUfXwc/lo3PH4SCn1+hcfyApHE1ZSBEo5GLDys/7tGGc0E4/HVG8aTpCmghDciQJrBeMtacEviP0XVhR4hmo1aza1Yu5BbRjsXz1eBhcd9Y9ee66O24e7wkShwyFDkA4HvEZ/I3j/Zv6zwcncsqLr4ncbogfvAu0yRO+NphAKBeXVfdqZ9CegpDBK/zh5kWObiRYJfMDMLPo0nXtCvKKQ6CLUdfxUSvImI+XrrlRCKNj5DZfjZENjm879ZFljtTZ9ktr2j7Q6KFeFyXIRVfEbitdZDW02/abuMrQEv1UPAcT2dB2l6sU2Fuucu2e++V7dUvINRIcdVhc3Qf7jmczxUaIZMBqXmsab72Z/DGFtXm4iC2XLebhnJg59/6fNohJ6rg/BsImZ6d+xZ1Hc8fqMfNEQJBRS15u6m505AVaAY+LKYz4kL2/HCvLEzvAmddBVV33twEMbIskT+yeITpZhTvqyxeGFE21KU9C7Bi2JkwV3X5FfclKsmhi2Uku2ZucwtaxIVxyAEApxquztx8cqBi+F3fSnZ3YdflOSiB8oCzBiyPpSxiKPNWmjk0UHnvdLQPb0LwalJ3sYxwuf5sPFJrn+pvGFPEAlZQlekf5KCSx6NJhF1fCEwAYH7p9LHm/fTcSuQQ=
+  app: agile-coast-77817
+  on:
+    repo: steffencrespo/node-shopping-list-integration-tests
