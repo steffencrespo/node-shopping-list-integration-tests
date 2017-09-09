@@ -25,7 +25,14 @@ describe('', function(){
 	});
 
 	it('should create new recipes', function(){
-		
+		const recipeToAdd = {'name': 'boiled white rice', 'ingredients': ['1 cup white rice', '2 cups water', 'pinch of salt']};
+		return chai.request(app)
+			.post('/recipes')
+			.send(recipeToAdd)
+			.then(function(res) {
+				res.should.have.status(201);
+				res.body.should.include.keys('name', 'ingredients');
+			});
 	});
 
 	it('should not create new recipe when the request is missing parameters', function(){
