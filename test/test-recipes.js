@@ -36,7 +36,14 @@ describe('', function(){
 	});
 
 	it('should not create new recipe when the request is missing parameters', function(){
+		return chai.request(app)
+			.post('/recipes')
+			.send({'name': 'boiled white rice'})
+			.then(function(res) {
+				res.should.have.status(400);
+				res.body.should.have.message('Missing ingredients in request body');
 
+			});
 		
 	});
 
