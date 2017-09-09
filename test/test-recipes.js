@@ -20,6 +20,11 @@ describe('', function(){
 					res.should.have.status(200);
 					res.should.be.json;
 					res.body.length.should.be.above(0);
+
+					res.body.forEach(function(item){
+						item.should.be.a('object');
+						item.should.include.keys('id', 'name', 'ingredients');
+					});
 				});
 		
 	});
