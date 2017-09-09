@@ -35,20 +35,35 @@ describe('', function(){
 			});
 	});
 
-	it('should not create new recipe when the request is missing parameters', function(){
+	xit('should not create new recipe when the request is missing parameters', function(){
 		return chai.request(app)
 			.post('/recipes')
 			.send({'name': 'boiled white rice'})
 			.then(function(res) {
 				res.should.have.status(400);
 				res.body.should.have.message('Missing ingredients in request body');
-
 			});
 		
 	});
 
 	it('should change an existing recipe', function(){
-
+		const updateRecipe = {
+			name: 'newRecipe',
+			ingredients: []
+		}
+		return chai.request(app)
+			.get('/recipes')
+			.then(function(res){
+				updateRecipe.id = res.body[0].id;
+				return chai.request(app)
+					.put(`/recipes/${updateRecipe.id}`)
+					.send(updateRecipe)
+			})
+			.then(function(res){
+				res.should.have.status(201);
+				res.should.be.a('object');
+				res.body.should.deep.equal(updateRecipe);
+			});
 		
 	});	
 
