@@ -37,6 +37,7 @@ describe('', function(){
 			.then(function(res) {
 				res.should.have.status(201);
 				res.body.should.include.keys('name', 'ingredients');
+				res.body.ingredients.should.include.members(recipeToAdd.ingredients);
 			});
 	});
 
